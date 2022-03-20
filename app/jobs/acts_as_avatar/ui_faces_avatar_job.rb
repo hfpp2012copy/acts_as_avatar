@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-class UiFacesAvatarJob < ApplicationJob
+require "marcel"
+
+class ActsAsAvatar::UiFacesAvatarJob < ActiveJob::Base
   queue_as :default
 
   def perform(admin_user_id)
@@ -12,7 +14,8 @@ class UiFacesAvatarJob < ApplicationJob
 
     admin_user.default_avatar.attach(
       io: random_image,
-      filename: ActsAsAvatar.configuration.default_file_name
+      filename: ActsAsAvatar.configuration.default_file_name,
+      content_type: Marcel::MimeType.for(random_image)
     )
   end
 end

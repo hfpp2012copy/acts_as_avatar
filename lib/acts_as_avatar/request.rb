@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require "singleton"
+require "forwardable"
+
 module ActsAsAvatar
   class Request
     # private_class_method :new

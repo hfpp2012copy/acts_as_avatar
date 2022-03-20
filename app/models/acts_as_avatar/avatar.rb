@@ -16,6 +16,8 @@
 #
 #  index_avatars_on_avatarable  (avatarable_type,avatarable_id)
 #
+require "marcel"
+
 module ActsAsAvatar
   class Avatar < ActiveRecord::Base
     # Table name
@@ -43,17 +45,19 @@ module ActsAsAvatar
 
       if avatarable.class.uifaces_random_avatar
         # uifaces random image
-        UiFacesAvatarJob.perform_later(id)
+        ActsAsAvatar::UiFacesAvatarJob.perform_later(id)
       else
         add_default_letter_avatar
       end
     end
 
     def add_default_letter_avatar
+      io = File.open(LetterAvatar.generate(avatarable.name, 200))
+
       default_avatar.attach(
-        io: File.open(LetterAvatar.generate(avatarable.name, 200)),
+        io: io,
         filename: ActsAsAvatar.configuration.default_file_name,
-        content_type: "image/png"
+        content_type: Marcel::MimeType.for(io)
       )
     end
   end

@@ -6,5 +6,5 @@ ActsAsAvatar.configure do |config|
   config.gender                = nil
   config.uri                   = "https://api.uifaces.co"
   config.api_key               = ""
-  config.default_file_name     = "default_avatar.png"
+  config.default_file_name     = "default_avatar"
 end

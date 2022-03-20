@@ -29,7 +29,7 @@ module ActsAsAvatar
       @gender                = nil
       @limit                 = 72
       @uifaces_random_avatar = nil
-      @default_file_name     = "default_avatar.png"
+      @default_file_name     = "default_avatar"
     end
   end
 end
