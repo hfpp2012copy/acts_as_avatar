@@ -24,7 +24,7 @@ module ActsAsAvatar
     self.table_name = "act_as_avatars"
 
     # belongs_to :avatarable, polymorphic: true
-    delegated_type :avatarable, types: %w[AdminUser]
+    delegated_type :avatarable, types: ActsAsAvatar.configuration.class_type
     validates :avatarable_type, presence: true
     # delegate :email, to: :avatarable
     # accepts_nested_attributes_for :avatarable
@@ -47,11 +47,11 @@ module ActsAsAvatar
         # uifaces random image
         ActsAsAvatar::UiFacesAvatarJob.perform_later(id)
       else
-        add_default_letter_avatar
+        add_letter_avatar
       end
     end
 
-    def add_default_letter_avatar
+    def add_letter_avatar
       io = File.open(LetterAvatar.generate(avatarable.name, 200))
 
       default_avatar.attach(

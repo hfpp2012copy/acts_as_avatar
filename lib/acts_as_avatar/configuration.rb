@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "active_support/core_ext/numeric/bytes"
+
 module ActsAsAvatar
   @mutex = Mutex.new
 
@@ -22,7 +24,8 @@ module ActsAsAvatar
                   :uri,
                   :api_key,
                   :default_file_name,
-                  :upload_max_size
+                  :upload_max_size,
+                  :class_type
 
     def initialize
       @uri                   = "https://api.uifaces.co"
@@ -32,6 +35,7 @@ module ActsAsAvatar
       @uifaces_random_avatar = nil
       @default_file_name     = "default_avatar"
       @upload_max_size       = 2.megabytes
+      @class_type            = %w[User]
     end
   end
 end

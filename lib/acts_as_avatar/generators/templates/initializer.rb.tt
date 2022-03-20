@@ -8,4 +8,5 @@ ActsAsAvatar.configure do |config|
   config.api_key               = ""
   config.default_file_name     = "default_avatar"
   config.upload_max_size       = 2.megabytes
+  config.class_type            = %w[User]
 end
