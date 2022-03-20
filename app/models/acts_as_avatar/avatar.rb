@@ -17,7 +17,7 @@
 #  index_avatars_on_avatarable  (avatarable_type,avatarable_id)
 #
 module ActsAsAvatar
-  class Model < ApplicationRecord
+  class Avatar < ActiveRecord::Base
     # Table name
     self.table_name = "act_as_avatars"
 

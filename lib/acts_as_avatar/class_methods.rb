@@ -18,7 +18,7 @@ module ActsAsAvatar
           uifaces_random_avatar
         end
       end
-      has_one :avatar, as: :avatarable, class_name: "ActsAsAvatar::Model"
+      has_one :avatar, as: :avatarable, class_name: "ActsAsAvatar::Avatar"
       accepts_nested_attributes_for :avatar
       delegate :current_avatar, :default_avatar, :upload_avatar, to: :avatar
       # include InstanceMethods
