@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "acts_as_avatar/generators/install_generator"
 
 module ActsAsAvatar
