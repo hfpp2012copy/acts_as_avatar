@@ -31,7 +31,7 @@ module ActsAsAvatar
     has_one_attached :upload_avatar
     has_one_attached :default_avatar
     after_commit :add_default_avatar, on: %i[create update]
-    validates :upload_avatar, size: { less_than: 2.megabytes },
+    validates :upload_avatar, size: { less_than: ActsAsAvatar.configuration.upload_max_size },
                               content_type: %r{\Aimage/.*\z}
 
     def current_avatar

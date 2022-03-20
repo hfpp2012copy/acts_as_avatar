@@ -21,7 +21,8 @@ module ActsAsAvatar
                   :uifaces_random_avatar,
                   :uri,
                   :api_key,
-                  :default_file_name
+                  :default_file_name,
+                  :upload_max_size
 
     def initialize
       @uri                   = "https://api.uifaces.co"
@@ -30,6 +31,7 @@ module ActsAsAvatar
       @limit                 = 72
       @uifaces_random_avatar = nil
       @default_file_name     = "default_avatar"
+      @upload_max_size       = 2.megabytes
     end
   end
 end
