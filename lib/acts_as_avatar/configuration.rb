@@ -20,7 +20,8 @@ module ActsAsAvatar
                   :limit,
                   :uifaces_random_avatar,
                   :uri,
-                  :api_key
+                  :api_key,
+                  :default_file_name
 
     def initialize
       @uri                   = "https://api.uifaces.co"
@@ -28,6 +29,7 @@ module ActsAsAvatar
       @gender                = nil
       @limit                 = 72
       @uifaces_random_avatar = nil
+      @default_file_name     = "default_avatar.png"
     end
   end
 end

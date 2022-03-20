@@ -2,8 +2,9 @@
 
 ActsAsAvatar.configure do |config|
   config.uifaces_random_avatar = true
-  config.limit = 72
-  config.gender = nil
-  config.uri = "https://api.uifaces.co"
-  config.api_key = ""
+  config.limit                 = 72
+  config.gender                = nil
+  config.uri                   = "https://api.uifaces.co"
+  config.api_key               = ""
+  config.default_file_name     = "default_avatar.png"
 end

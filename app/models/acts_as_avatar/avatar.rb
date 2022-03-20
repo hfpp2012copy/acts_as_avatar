@@ -52,7 +52,7 @@ module ActsAsAvatar
     def add_default_letter_avatar
       default_avatar.attach(
         io: File.open(LetterAvatar.generate(avatarable.name, 200)),
-        filename: "default_avatar.png",
+        filename: ActsAsAvatar.configuration.default_file_name,
         content_type: "image/png"
       )
     end

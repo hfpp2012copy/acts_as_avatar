@@ -12,7 +12,7 @@ class UiFacesAvatarJob < ApplicationJob
 
     admin_user.default_avatar.attach(
       io: random_image,
-      filename: "default_avatar.jpg"
+      filename: ActsAsAvatar.configuration.default_file_name
     )
   end
 end
