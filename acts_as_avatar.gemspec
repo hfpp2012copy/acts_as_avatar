@@ -28,4 +28,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", "~> 7.0.2"
   spec.add_dependency "singleton", "~> 0.1.1"
   spec.add_dependency "forwardable", "~> 1.3.2"
+  spec.add_dependency "active_storage_validations", "~> 0.9.6"
 end
