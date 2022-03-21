@@ -30,4 +30,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "marcel", "~> 1.0"
   spec.add_dependency "rails", "~> 7.0.2"
   spec.add_dependency "singleton", "~> 0.1.1"
+  spec.add_dependency "initials", "~> 0.4.2"
 end
