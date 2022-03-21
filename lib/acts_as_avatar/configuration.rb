@@ -25,7 +25,8 @@ module ActsAsAvatar
                   :random_image_engine,
                   :default_file_name,
                   :upload_max_size,
-                  :class_type
+                  :class_type,
+                  :letter_avatar_name
 
     def initialize
       @uifaces_uri           = "https://api.uifaces.co"
@@ -36,6 +37,7 @@ module ActsAsAvatar
       @default_file_name     = "default_avatar"
       @upload_max_size       = 2.megabytes
       @class_type            = %w[User]
+      @letter_avatar_name    = :name
     end
   end
 end

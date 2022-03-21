@@ -2,6 +2,13 @@
 
 ActsAsAvatar.configure do |config|
   #
+  # Global configuration
+  #
+  config.default_file_name     = "default_avatar"
+  config.upload_max_size       = 2.megabytes
+  config.class_type            = %w[User]
+
+  #
   # Optional value is :letter_avatar or :uifaces
   # When value is nil, disable engine
   #
@@ -16,9 +23,7 @@ ActsAsAvatar.configure do |config|
   config.uifaces_api_key       = ""
 
   #
-  # Global configuration
+  # When random_image_engine is :letter_avatar
   #
-  config.default_file_name     = "default_avatar"
-  config.upload_max_size       = 2.megabytes
-  config.class_type            = %w[User]
+  config.letter_avatar_name    = :fullname
 end
