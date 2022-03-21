@@ -20,9 +20,9 @@ module ActsAsAvatar
   class Configuration
     attr_accessor :uifaces_gender,
                   :uifaces_limit,
-                  :uifaces_random_avatar,
                   :uifaces_uri,
                   :uifaces_api_key,
+                  :random_image_engine,
                   :default_file_name,
                   :upload_max_size,
                   :class_type
@@ -32,7 +32,7 @@ module ActsAsAvatar
       @uifaces_api_key       = "72694e5b5dee4706edc0acad3d4291"
       @uifaces_gender        = nil
       @uifaces_limit         = 72
-      @uifaces_random_avatar = nil
+      @random_image_engine   = nil
       @default_file_name     = "default_avatar"
       @upload_max_size       = 2.megabytes
       @class_type            = %w[User]

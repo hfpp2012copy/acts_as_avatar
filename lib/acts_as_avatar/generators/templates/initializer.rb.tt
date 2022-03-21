@@ -1,11 +1,23 @@
 # frozen_string_literal: true
 
 ActsAsAvatar.configure do |config|
-  config.uifaces_random_avatar = true
+  #
+  # Optional value is :letter_avatar or :uifaces
+  # When value is nil, disable engine
+  #
+  config.random_image_engine   = :letter_avatar
+
+  #
+  # When random_image_engine is :uifaces
+  #
   config.uifaces_limit         = 72
   config.uifaces_gender        = nil
   config.uifaces_uri           = "https://api.uifaces.co"
   config.uifaces_api_key       = ""
+
+  #
+  # Global configuration
+  #
   config.default_file_name     = "default_avatar"
   config.upload_max_size       = 2.megabytes
   config.class_type            = %w[User]

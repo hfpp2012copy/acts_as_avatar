@@ -9,13 +9,13 @@ module ActsAsAvatar
     def acts_as_avatar(*args)
       options = args.extract_options!
       # options.extract!
-      uifaces_random_avatar = options.delete(:uifaces_random_avatar)
+      random_image_engine = options.delete(:random_image_engine)
 
-      define_singleton_method :uifaces_random_avatar do
-        if uifaces_random_avatar.nil?
-          ActsAsAvatar.configuration.uifaces_random_avatar
+      define_singleton_method :random_image_engine do
+        if random_image_engine.nil?
+          ActsAsAvatar.configuration.random_image_engine
         else
-          uifaces_random_avatar
+          random_image_engine
         end
       end
       has_one :avatar, as: :avatarable, class_name: "ActsAsAvatar::Avatar"

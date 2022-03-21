@@ -30,7 +30,7 @@ module ActsAsAvatar
     # accepts_nested_attributes_for :avatarable
     has_one_attached :upload_avatar
     has_one_attached :default_avatar
-    after_commit :add_default_avatar, on: %i[create update]
+    after_commit :add_default_avatar, on: %i[create update], if: -> { random_image_engine.present? }
     validates :upload_avatar, size: { less_than: ActsAsAvatar.configuration.upload_max_size },
                               content_type: %r{\Aimage/.*\z}
 
@@ -40,13 +40,17 @@ module ActsAsAvatar
 
     private
 
+    def random_image_engine
+      avatarable.class.random_image_engine
+    end
+
     def add_default_avatar
       return if default_avatar.attached?
 
-      if avatarable.class.uifaces_random_avatar
-        # uifaces random image
+      case random_image_engine.to_sym
+      when :uifaces
         ActsAsAvatar::UiFacesAvatarJob.perform_later(avatarable.to_global_id.to_s)
-      else
+      when :letter_avatar
         add_letter_avatar
       end
     end
