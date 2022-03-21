@@ -9,7 +9,7 @@ module ActsAsAvatar
         name = object.send(name.to_sym)
 
         if ActsAsAvatar.configuration.inline_svg_engine.to_sym == :initial_avatar
-          image_tag InitialAvatar.avatar_data_uri(name.first), **options
+          image_tag InitialAvatar.avatar_data_uri(name.first, size: size), **options
         else
           Initials.svg name, size: size, **options
         end
