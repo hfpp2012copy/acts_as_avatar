@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 require "initials"
+require "execjs"
 
 module ActsAsAvatar
   module Helper
@@ -34,10 +37,14 @@ module ActsAsAvatar
       opts = {
         colors: options[:colors], # number of different colors, default: 12
         limit: options[:limit], # maximal initials length, default: 3
-        shape: options[:shape], # background shape, default: :cirlce
+        shape: options[:shape] # background shape, default: :cirlce
       }.compact
 
       Initials.svg name, size: size, **opts
+    end
+
+    def github_avatar_tag(**options)
+      ActsAsAvatar::GithubAvatar.instance.random_svg_avatar(**options).html_safe
     end
   end
 end

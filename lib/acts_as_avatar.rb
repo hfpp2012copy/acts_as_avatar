@@ -5,6 +5,7 @@ require_relative "acts_as_avatar/generators/install_generator"
 module ActsAsAvatar
   autoload :VERSION, "acts_as_avatar/version"
   autoload :Request, "acts_as_avatar/request"
+  autoload :GithubAvatar, "acts_as_avatar/github_avatar"
 
   require_relative "acts_as_avatar/configuration"
   require_relative "acts_as_avatar/class_methods"

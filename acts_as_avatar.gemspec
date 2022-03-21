@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "lib/acts_as_avatar/version"
 
 Gem::Specification.new do |spec|
@@ -26,11 +28,12 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "active_storage_validations", "~> 0.9.6"
+  spec.add_dependency "execjs", "~> 2.8.1"
   spec.add_dependency "forwardable", "~> 1.3.2"
+  spec.add_dependency "initial_avatar", "~> 0.2.2"
+  spec.add_dependency "initials", "~> 0.4.2"
+  spec.add_dependency "letter_avatar", "~> 0.3.9"
   spec.add_dependency "marcel", "~> 1.0"
   spec.add_dependency "rails", "~> 7.0.2"
   spec.add_dependency "singleton", "~> 0.1.1"
-  spec.add_dependency "initials", "~> 0.4.2"
-  spec.add_dependency "letter_avatar", "~> 0.3.9"
-  spec.add_dependency "initial_avatar", "~> 0.2.2"
 end
