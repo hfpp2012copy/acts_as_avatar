@@ -12,7 +12,12 @@ ActsAsAvatar.configure do |config|
   # Optional value is :letter_avatar or :uifaces
   # When value is nil, disable engine
   #
-  config.random_image_engine   = :letter_avatar
+  config.random_image_engine = :letter_avatar
+
+  #
+  # Optional value is :initial_avatar or :initials
+  #
+  config.inline_svg_engine = :initial_avatar
 
   #
   # When random_image_engine is :uifaces

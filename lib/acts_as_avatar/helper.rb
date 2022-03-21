@@ -6,7 +6,13 @@ module ActsAsAvatar
       if object.current_avatar.attached?
         image_tag object.current_avatar.variant(resize_to_fill: [size, size]), **options
       else
-        Initials.svg object.send(name.to_sym), size: size, **options
+        name = object.send(name.to_sym)
+
+        if ActsAsAvatar.configuration.inline_svg_engine.to_sym == :initial_avatar
+          image_tag InitialAvatar.avatar_data_uri(name.first)
+        else
+          Initials.svg name, size: size, **options
+        end
       end
     end
   end

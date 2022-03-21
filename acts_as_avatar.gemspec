@@ -32,4 +32,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "singleton", "~> 0.1.1"
   spec.add_dependency "initials", "~> 0.4.2"
   spec.add_dependency "letter_avatar", "~> 0.3.9"
+  spec.add_dependency "initial_avatar", "~> 0.2.2"
 end
