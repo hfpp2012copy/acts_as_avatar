@@ -45,7 +45,7 @@ module ActsAsAvatar
 
       if avatarable.class.uifaces_random_avatar
         # uifaces random image
-        ActsAsAvatar::UiFacesAvatarJob.perform_later(id)
+        ActsAsAvatar::UiFacesAvatarJob.perform_later(avatarable.to_global_id.to_s)
       else
         add_letter_avatar
       end
