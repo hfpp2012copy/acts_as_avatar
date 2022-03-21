@@ -8,10 +8,10 @@ module ActsAsAvatar
     # private_class_method :new
     include Singleton
 
-    URL = ActsAsAvatar.configuration.uri
-    API_KEY = ActsAsAvatar.configuration.api_key
+    URL = ActsAsAvatar.configuration.uifaces_uri
+    API_KEY = ActsAsAvatar.configuration.uifaces_api_key
 
-    %w[gender limit].each do |name|
+    %w[uifaces_gender uifaces_limit].each do |name|
       attr_writer name.to_sym
 
       class_eval <<-RUBY, __FILE__, __LINE__ + 1
@@ -27,10 +27,10 @@ module ActsAsAvatar
     end
 
     def params
-      if gender.nil?
-        "popular&limit=#{limit}"
+      if uifaces_gender.nil?
+        "popular&limit=#{uifaces_limit}"
       else
-        "gender%5B%5D=#{gender}&limit=#{limit}"
+        "gender%5B%5D=#{uifaces_gender}&limit=#{uifaces_limit}"
       end
     end
 
@@ -39,29 +39,29 @@ module ActsAsAvatar
     # @example
     #   ActsAsAvatar::Request.read_image
     #
-    #   ActsAsAvatar::Request.read_image limit: 20, gender: "female"
+    #   ActsAsAvatar::Request.read_image uifaces_limit: 20, uifaces_gender: "female"
     #
     #   instance = ActsAsAvatar::Request.instance
-    #   instance.gender = "male"
-    #   instance.limit  = 20
+    #   instance.uifaces_gender = "male"
+    #   instance.uifaces_limit  = 20
     #   instance.read_image
     #
-    # @param [String] gender
+    # @param [String] uifaces_gender
     #   the gender is male or female
-    # @param [Integer] limit
+    # @param [Integer] uifaces_limit
     #   the count of the image records
     #
     # @api public
     def read_image(options={})
       configuration = {
-        gender: ActsAsAvatar.configuration.gender,
-        limit: ActsAsAvatar.configuration.limit
+        uifaces_gender: ActsAsAvatar.configuration.uifaces_gender,
+        uifaces_limit: ActsAsAvatar.configuration.uifaces_limit
       }
 
       configuration.update(options) if options.is_a?(Hash)
 
-      @gender = configuration[:gender]
-      @limit = configuration[:limit]
+      @uifaces_gender = configuration[:uifaces_gender]
+      @uifaces_limit = configuration[:uifaces_limit]
       URI.parse(image_url).open if image_url
     end
 
@@ -77,7 +77,7 @@ module ActsAsAvatar
       return unless request[:success] && request[:res].status.success?
 
       result = request[:res].parse(:json)
-      result[rand(limit.to_i - 1)]["photo"]
+      result[rand(uifaces_limit.to_i - 1)]["photo"]
     end
   end
 end

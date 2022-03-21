@@ -18,20 +18,20 @@ module ActsAsAvatar
   end
 
   class Configuration
-    attr_accessor :gender,
-                  :limit,
+    attr_accessor :uifaces_gender,
+                  :uifaces_limit,
                   :uifaces_random_avatar,
-                  :uri,
-                  :api_key,
+                  :uifaces_uri,
+                  :uifaces_api_key,
                   :default_file_name,
                   :upload_max_size,
                   :class_type
 
     def initialize
-      @uri                   = "https://api.uifaces.co"
-      @api_key               = "72694e5b5dee4706edc0acad3d4291"
-      @gender                = nil
-      @limit                 = 72
+      @uifaces_uri           = "https://api.uifaces.co"
+      @uifaces_api_key       = "72694e5b5dee4706edc0acad3d4291"
+      @uifaces_gender        = nil
+      @uifaces_limit         = 72
       @uifaces_random_avatar = nil
       @default_file_name     = "default_avatar"
       @upload_max_size       = 2.megabytes

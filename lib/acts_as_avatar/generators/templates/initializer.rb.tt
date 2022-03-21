@@ -2,10 +2,10 @@
 
 ActsAsAvatar.configure do |config|
   config.uifaces_random_avatar = true
-  config.limit                 = 72
-  config.gender                = nil
-  config.uri                   = "https://api.uifaces.co"
-  config.api_key               = ""
+  config.uifaces_limit         = 72
+  config.uifaces_gender        = nil
+  config.uifaces_uri           = "https://api.uifaces.co"
+  config.uifaces_api_key       = ""
   config.default_file_name     = "default_avatar"
   config.upload_max_size       = 2.megabytes
   config.class_type            = %w[User]
