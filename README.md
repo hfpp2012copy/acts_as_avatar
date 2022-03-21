@@ -24,6 +24,12 @@ $ gem install acts_as_avatar
 require "acts_as_avatar"
 ```
 
+## Usage
+
+```
+<%= image_tag acts_as_avatar(current_admin_user), class: "rounded-circle", alt: "Profile" %>
+```
+
 ## Support
 
 If you want to report a bug, or have ideas, feedback or questions about the gem, [let me know via GitHub issues](https://github.com/hfpp2012/acts_as_avatar/issues/new) and I will do my best to provide a helpful answer. Happy hacking!
