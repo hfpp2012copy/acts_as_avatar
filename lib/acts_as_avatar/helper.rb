@@ -11,7 +11,13 @@ module ActsAsAvatar
         if ActsAsAvatar.configuration.inline_svg_engine.to_sym == :initial_avatar
           image_tag InitialAvatar.avatar_data_uri(name.first, size: size), **options
         else
-          Initials.svg name, size: size, **options
+          opts = {
+            colors: options[:colors], # number of different colors, default: 12
+            limit: options[:limit], # maximal initials length, default: 3
+            shape: options[:shape], # background shape, default: :cirlce
+          }.compact
+
+          Initials.svg name, size: size, **opts
         end
       end
     end
