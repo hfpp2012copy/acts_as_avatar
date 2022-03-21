@@ -53,15 +53,18 @@ module ActsAsAvatar
     #
     # @api public
     def read_image(options={})
-      configuration = {
-        uifaces_gender: ActsAsAvatar.configuration.uifaces_gender,
-        uifaces_limit: ActsAsAvatar.configuration.uifaces_limit
-      }
+      # configuration = {
+      #   uifaces_gender: ActsAsAvatar.configuration.uifaces_gender,
+      #   uifaces_limit: ActsAsAvatar.configuration.uifaces_limit
+      # }
+      #
+      # configuration.update(options) if options.is_a?(Hash)
 
-      configuration.update(options) if options.is_a?(Hash)
+      opts = ActsAsAvatar.configuration.default_options.merge(options)
 
-      @uifaces_gender = configuration[:uifaces_gender]
-      @uifaces_limit = configuration[:uifaces_limit]
+      @uifaces_gender = opts[:uifaces_gender]
+      @uifaces_limit = opts[:uifaces_limit]
+
       URI.parse(image_url).open if image_url
     end
 

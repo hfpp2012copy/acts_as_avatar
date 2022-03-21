@@ -39,5 +39,9 @@ module ActsAsAvatar
       @class_type            = %w[User]
       @letter_avatar_name    = :name
     end
+
+    def default_options
+      instance_variables.map { |key| [key.to_s.sub("@", "").to_sym, instance_variable_get(key)] }.to_h
+    end
   end
 end
