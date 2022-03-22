@@ -56,7 +56,7 @@ module ActsAsAvatar
     end
 
     def add_letter_avatar
-      name         = ActsAsAvatar.configuration.letter_avatar_name.to_sym
+      name         = ActsAsAvatar.configuration.avatar_name.to_sym
       io           = File.open(LetterAvatar.generate(avatarable.send(name.to_sym), 200))
       filename     = ActsAsAvatar.configuration.default_file_name
       content_type = Marcel::MimeType.for(io)

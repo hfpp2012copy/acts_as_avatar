@@ -26,20 +26,20 @@ module ActsAsAvatar
                   :default_file_name,
                   :upload_max_size,
                   :class_type,
-                  :letter_avatar_name,
+                  :avatar_name,
                   :inline_svg_engine
 
     def initialize
-      @uifaces_uri           = "https://api.uifaces.co"
-      @uifaces_api_key       = "72694e5b5dee4706edc0acad3d4291"
-      @uifaces_gender        = nil
-      @uifaces_limit         = 72
-      @random_image_engine   = nil
-      @default_file_name     = "default_avatar"
-      @upload_max_size       = 2.megabytes
-      @class_type            = %w[User]
-      @letter_avatar_name    = :name
-      @inline_svg_engine     = :initial_avatar
+      @uifaces_uri         = "https://api.uifaces.co"
+      @uifaces_api_key     = "72694e5b5dee4706edc0acad3d4291"
+      @uifaces_gender      = nil
+      @uifaces_limit       = 72
+      @random_image_engine = nil
+      @default_file_name   = "default_avatar"
+      @upload_max_size     = 2.megabytes
+      @class_type          = %w[User]
+      @avatar_name         = :name
+      @inline_svg_engine   = :initial_avatar
     end
 
     def default_options

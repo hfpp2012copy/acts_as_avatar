@@ -4,9 +4,10 @@ ActsAsAvatar.configure do |config|
   #
   # Global configuration
   #
-  config.default_file_name     = "default_avatar"
-  config.upload_max_size       = 2.megabytes
-  config.class_type            = %w[User]
+  config.default_file_name = "default_avatar"
+  config.upload_max_size   = 2.megabytes
+  config.class_type        = %w[User]
+  config.avatar_name       = :fullname # Name for show letter
 
   #
   # Optional value is :letter_avatar or :uifaces
@@ -26,9 +27,4 @@ ActsAsAvatar.configure do |config|
   config.uifaces_gender        = nil
   config.uifaces_uri           = "https://api.uifaces.co"
   config.uifaces_api_key       = ""
-
-  #
-  # When random_image_engine is :letter_avatar
-  #
-  config.letter_avatar_name    = :fullname
 end
