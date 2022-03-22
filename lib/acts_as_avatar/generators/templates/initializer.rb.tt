@@ -11,13 +11,13 @@ ActsAsAvatar.configure do |config|
   config.avatar_size       = 60
 
   #
-  # Optional value is :letter_avatar, :uifaces_avatar, :identicon_avatar or :icodi_avatar
+  # Optional value is :letter_avatar, :uifaces_avatar or :identicon_avatar
   # When value is nil, disable engine
   #
   config.random_image_engine = :letter_avatar
 
   #
-  # Optional value is :initial_avatar or :initials
+  # Optional value is :initial_avatar, :initials or :icodi_avatar
   #
   config.inline_svg_engine = :initial_avatar
 
