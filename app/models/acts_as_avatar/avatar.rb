@@ -59,7 +59,7 @@ module ActsAsAvatar
     end
 
     def add_identicon_avatar
-      io = RubyIdenticon.create(name)
+      io = RubyIdenticon.create(text)
 
       default_avatar.attach(
         io: StringIO.new(io),
@@ -81,7 +81,7 @@ module ActsAsAvatar
     end
 
     def add_letter_avatar
-      io = File.open(LetterAvatar.generate(name, 200))
+      io = File.open(LetterAvatar.generate(text, 200))
 
       default_avatar.attach(
         io: io,
@@ -105,7 +105,7 @@ module ActsAsAvatar
       ActsAsAvatar.configuration.default_file_name
     end
 
-    def name
+    def text
       name = ActsAsAvatar.configuration.avatar_name.to_sym
       avatarable.send(name.to_sym)
     end

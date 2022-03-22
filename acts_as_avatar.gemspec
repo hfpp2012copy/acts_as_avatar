@@ -38,4 +38,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "singleton", "~> 0.1.1"
   spec.add_dependency "ruby_identicon", "~> 0.0.6"
   spec.add_dependency "stringio", "~> 3.0.1"
+  spec.add_dependency "icodi", "~> 0.1.3"
 end

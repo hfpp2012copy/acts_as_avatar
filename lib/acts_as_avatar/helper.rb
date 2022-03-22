@@ -3,6 +3,7 @@
 require "initials"
 require "execjs"
 require "initial_avatar"
+require "icodi"
 
 module ActsAsAvatar
   module Helper
@@ -18,6 +19,8 @@ module ActsAsAvatar
         case inline_svg_engine.to_sym
         when :initial_avatar
           initial_avatar_tag(text, size: size, **options)
+        when :icodi_avatar
+          icodi_avatar_tag(text, **options)
         when :initials
           initials_tag(text, size: size, **options)
         end
@@ -45,6 +48,42 @@ module ActsAsAvatar
 
     def github_avatar_tag(**options)
       ActsAsAvatar::GithubAvatar.instance.random_svg_avatar(**options).html_safe
+    end
+
+    def icodi_avatar_tag(text, **options)
+      #
+      # https://github.com/DannyBen/icodi
+      #
+      # Default value:
+      #
+      # pixels: 5
+      # mirror: :x
+      # color:
+      # density: 0.5
+      # stroke: 0.1
+      # jitter: 0
+      # background: #fff
+      # id: icodi
+      #
+      # SVG template to use.
+      # Can be :default, :html or a path to a file. Read more on Victor SVG Templates.
+      #
+      # template: default
+      opts = options.extract!(:pixels,
+                              :density,
+                              :mirror,
+                              :color,
+                              :stroke,
+                              :jitter,
+                              :id,
+                              :template,
+                              :background)
+
+      pixels = opts[:pixels] || 8
+      density = opts[:density] || 0.33
+
+      svg = Icodi.new text, pixels: pixels, density: density, **opts
+      svg.render.html_safe
     end
   end
 end
