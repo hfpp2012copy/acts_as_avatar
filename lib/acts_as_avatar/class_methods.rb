@@ -6,26 +6,16 @@ module ActsAsAvatar
   end
 
   module ClassMethods
-    def acts_as_avatar(*args)
-      options = args.extract_options!
-      # options.extract!
+    def acts_as_avatar(**options)
       random_image_engine = options.delete(:random_image_engine)
       inline_svg_engine = options.delete(:inline_svg_engine)
 
       define_singleton_method :random_image_engine do
-        if random_image_engine.nil?
-          ActsAsAvatar.configuration.random_image_engine
-        else
-          random_image_engine
-        end
+        random_image_engine.presence || ActsAsAvatar.configuration.random_image_engine
       end
 
       define_singleton_method :inline_svg_engine do
-        if inline_svg_engine.nil?
-          ActsAsAvatar.configuration.inline_svg_engine
-        else
-          inline_svg_engine
-        end
+        inline_svg_engine.presence || ActsAsAvatar.configuration.inline_svg_engine
       end
 
       has_one :avatar, as: :avatarable, class_name: "ActsAsAvatar::Avatar"
