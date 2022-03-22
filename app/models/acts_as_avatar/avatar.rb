@@ -46,6 +46,8 @@ module ActsAsAvatar
         ActsAsAvatar::UiFacesAvatarJob.perform_later(avatarable.to_global_id.to_s)
       when :letter_avatar
         add_letter_avatar
+      when :identicon_avatar
+        add_identicon_avatar
       end
     end
 
@@ -53,6 +55,16 @@ module ActsAsAvatar
 
     def random_image_engine
       avatarable.class.random_image_engine
+    end
+
+    def add_identicon_avatar
+      io = RubyIdenticon.create(name)
+
+      default_avatar.attach(
+        io: StringIO.new(io),
+        filename: default_file_name,
+        content_type: content_type(io)
+      )
     end
 
     def add_uifaces_avatar
@@ -68,8 +80,7 @@ module ActsAsAvatar
     end
 
     def add_letter_avatar
-      name         = ActsAsAvatar.configuration.avatar_name.to_sym
-      io           = File.open(LetterAvatar.generate(avatarable.send(name.to_sym), 200))
+      io = File.open(LetterAvatar.generate(name, 200))
 
       default_avatar.attach(
         io: io,
@@ -91,6 +102,11 @@ module ActsAsAvatar
 
     def default_file_name
       ActsAsAvatar.configuration.default_file_name
+    end
+
+    def name
+      name = ActsAsAvatar.configuration.avatar_name.to_sym
+      avatarable.send(name.to_sym)
     end
 
     def content_type(io)
