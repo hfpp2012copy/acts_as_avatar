@@ -1,10 +1,15 @@
 <a name="unreleased"></a>
 ## [Unreleased]
 
+
+<a name="v1.2.1"></a>
+## [v1.2.1] - 2022-03-22
 ### Feat
 - Generate changelog
 
 ### Fix
+- Change letter_avatar_name to avatar_name
+- Changelog
 - Refactor class methods code about options
 - Update readme file
 - Define inline_svg_engine method
@@ -107,7 +112,8 @@
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2022-03-20
 
-[Unreleased]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.2.0...HEAD
+[Unreleased]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.2.1...HEAD
+[v1.2.1]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.2.0...v1.2.1
 [v1.2.0]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.1.2...v1.2.0
 [v1.1.2]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.1.1...v1.1.2
 [v1.1.1]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.1.0...v1.1.1
