@@ -1,7 +1,13 @@
 <a name="unreleased"></a>
 ## [Unreleased]
 
+### Feat
+- Generate changelog
+
 ### Fix
+- Refactor class methods code about options
+- Update readme file
+- Define inline_svg_engine method
 - Options extract!
 - Add style for github avatar
 
