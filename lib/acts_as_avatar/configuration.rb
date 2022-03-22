@@ -43,7 +43,9 @@ module ActsAsAvatar
     end
 
     def default_options
-      instance_variables.map { |key| [key.to_s.sub("@", "").to_sym, instance_variable_get(key)] }.to_h
+      instance_variables.to_h do |key|
+        [key.to_s.sub("@", "").to_sym, instance_variable_get(key)]
+      end
     end
   end
 end

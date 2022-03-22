@@ -28,9 +28,9 @@ require "acts_as_avatar"
 
 ```
 # view
-<%= acts_as_avatar_tag(admin_user, name: :avatar_name, class: "rounded-circle") %>
+<%= acts_as_avatar_tag(admin_user, class: "rounded-circle") %>
 
-<%= acts_as_avatar_tag(current_admin_user, name: :avatar_name, size: 36, class: "rounded-circle") %>
+<%= acts_as_avatar_tag(current_admin_user, size: 36, class: "rounded-circle") %>
 
 <%= acts_as_avatar_tag(current_admin_user, name: :avatar_name, class: "rounded-circle") %>
 
