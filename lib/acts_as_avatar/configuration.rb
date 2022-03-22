@@ -27,7 +27,8 @@ module ActsAsAvatar
                   :upload_max_size,
                   :class_type,
                   :avatar_name,
-                  :inline_svg_engine
+                  :inline_svg_engine,
+                  :avatar_size
 
     def initialize
       @uifaces_uri         = "https://api.uifaces.co"
@@ -40,6 +41,7 @@ module ActsAsAvatar
       @class_type          = %w[User]
       @avatar_name         = :name
       @inline_svg_engine   = :initial_avatar
+      @avatar_size         = 60
     end
 
     def default_options

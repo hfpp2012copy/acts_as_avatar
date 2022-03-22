@@ -8,6 +8,7 @@ ActsAsAvatar.configure do |config|
   config.upload_max_size   = 2.megabytes
   config.class_type        = %w[User]
   config.avatar_name       = :fullname # Name for show letter
+  config.avatar_size       = 60
 
   #
   # Optional value is :letter_avatar, :uifaces_avatar, :identicon_avatar or :icodi_avatar

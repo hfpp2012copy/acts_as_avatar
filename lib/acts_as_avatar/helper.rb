@@ -7,7 +7,9 @@ require "icodi"
 
 module ActsAsAvatar
   module Helper
-    def acts_as_avatar_tag(object, name: nil, size: 60, **options)
+    def acts_as_avatar_tag(object, name: nil, size: nil, **options)
+      size = size.presence || ActsAsAvatar.configuration.avatar_size
+
       if object.current_avatar.attached?
         image_tag object.current_avatar.variant(resize_to_fill: [size, size]), **options
       else
