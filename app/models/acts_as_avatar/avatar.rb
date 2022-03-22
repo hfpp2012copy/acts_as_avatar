@@ -30,12 +30,25 @@ module ActsAsAvatar
     # accepts_nested_attributes_for :avatarable
     has_one_attached :upload_avatar
     has_one_attached :default_avatar
-    after_commit :add_default_avatar, on: %i[create update], if: -> { random_image_engine.present? }
+    after_create_commit :add_default_avatar, if: -> { random_image_engine.present? }
     validates :upload_avatar, size: { less_than: ActsAsAvatar.configuration.upload_max_size },
                               content_type: %r{\Aimage/.*\z}
 
     def current_avatar
       upload_avatar.attached? ? upload_avatar : default_avatar
+    end
+
+    def add_default_avatar
+      # return if default_avatar.attached?
+
+      case random_image_engine.to_sym
+      when :uifaces_avatar
+        ActsAsAvatar::UiFacesAvatarJob.perform_later(avatarable.to_global_id.to_s)
+      when :letter_avatar
+        add_letter_avatar
+      when :github_avatar
+        add_github_avatar
+      end
     end
 
     private
@@ -44,28 +57,43 @@ module ActsAsAvatar
       avatarable.class.random_image_engine
     end
 
-    def add_default_avatar
-      return if default_avatar.attached?
+    def add_uifaces_avatar
+      io = ActsAsAvatar::Request.read_image
 
-      case random_image_engine.to_sym
-      when :uifaces
-        ActsAsAvatar::UiFacesAvatarJob.perform_later(avatarable.to_global_id.to_s)
-      when :letter_avatar
-        add_letter_avatar
-      end
+      return unless io
+
+      default_avatar.attach(
+        io: io,
+        filename: default_file_name,
+        content_type: content_type(io)
+      )
     end
 
     def add_letter_avatar
       name         = ActsAsAvatar.configuration.avatar_name.to_sym
       io           = File.open(LetterAvatar.generate(avatarable.send(name.to_sym), 200))
-      filename     = ActsAsAvatar.configuration.default_file_name
-      content_type = Marcel::MimeType.for(io)
 
       default_avatar.attach(
         io: io,
-        filename: filename,
-        content_type: content_type
+        filename: default_file_name,
+        content_type: content_type(io)
       )
+    end
+
+    # def add_github_avatar
+    #   default_avatar.attach(
+    #     io: io,
+    #     filename: default_file_name,
+    #     content_type: content_type
+    #   )
+    # end
+
+    def default_file_name
+      ActsAsAvatar.configuration.default_file_name
+    end
+
+    def content_type io
+      Marcel::MimeType.for(io)
     end
   end
 end
