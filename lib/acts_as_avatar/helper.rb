@@ -46,8 +46,17 @@ module ActsAsAvatar
       Initials.svg text, size: size, **opts
     end
 
-    def github_avatar_tag(**options)
-      ActsAsAvatar::GithubAvatar.instance.random_svg_avatar(**options).html_safe
+    def github_avatar_tag(size:, **options)
+      complexity = options[:complexity] || 5 # default value is 16
+      render_method = options[:render_method] || "square" # optional value is circle
+      rounded_circle = options[:rounded_circle] || false
+
+      ActsAsAvatar::GithubAvatar.instance.random_svg_avatar(
+        complexity,
+        render_method,
+        size,
+        rounded_circle
+      ).html_safe
     end
 
     def icodi_avatar_tag(text, size:, **options)

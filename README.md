@@ -36,6 +36,8 @@ require "acts_as_avatar"
 
 <%= github_avatar_tag complexity: 5, size: 60 %>
 
+<%= github_avatar_tag size: 60, rounded_circle: true %>
+
 # model
 acts_as_avatar inline_svg_engine: :initial_avatar
 ```
