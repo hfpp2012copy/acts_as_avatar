@@ -11,12 +11,12 @@ module ActsAsAvatar
     URL = ActsAsAvatar.configuration.uifaces_uri
     API_KEY = ActsAsAvatar.configuration.uifaces_api_key
 
-    %w[uifaces_gender uifaces_limit].each do |name|
-      attr_writer name.to_sym
+    %w[uifaces_gender uifaces_limit].each do |method_name|
+      attr_writer method_name.to_sym
 
       class_eval <<-RUBY, __FILE__, __LINE__ + 1
-        def #{name}
-          @#{name} ||= ActsAsAvatar.configuration.instance_variable_get("@#{name}")
+        def #{method_name}
+          @#{method_name} ||= ActsAsAvatar.configuration.instance_variable_get("@#{method_name}")
         end
       RUBY
     end
