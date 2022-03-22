@@ -27,7 +27,15 @@ require "acts_as_avatar"
 ## Usage
 
 ```
-<%= image_tag acts_as_avatar(current_admin_user), class: "rounded-circle", alt: "Profile" %>
+# view
+<%= acts_as_avatar_tag(admin_user, name: :avatar_name, class: "rounded-circle") %>
+
+<%= acts_as_avatar_tag(current_admin_user, name: :avatar_name, size: 36, class: "rounded-circle") %>
+
+<%= acts_as_avatar_tag(current_admin_user, name: :avatar_name, class: "rounded-circle") %>
+
+# model
+acts_as_avatar inline_svg_engine: :initial_avatar
 ```
 
 ## Support
