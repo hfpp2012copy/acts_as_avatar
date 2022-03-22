@@ -57,6 +57,7 @@ function getAvatarFromData(
   avatarData,
   renderMethod = "square",
   size = 256,
+  roundedCircle = false,
   avatarDataSeparator = "-"
 ) {
   const { xAxis, yAxis, colorMap } = parseAvatarData(
@@ -86,9 +87,15 @@ function getAvatarFromData(
     renderProcess = renderMethod;
   }
 
+  if (roundedCircle) {
+    inlineStyle = "style='border-radius: 50%'";
+  } else {
+    inlineStyle = "";
+  }
+
   const rows = getBinaryList(yAxis, complexity);
   const cols = getBinaryList(xAxis, complexity);
-  let ret = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}">`;
+  let ret = `<svg xmlns="http://www.w3.org/2000/svg" ${inlineStyle} width="${size}" height="${size}">`;
 
   rows.forEach((rowItem, indexY) => {
     let draw = [];
@@ -103,7 +110,12 @@ function getAvatarFromData(
   return `${ret}</svg>`;
 }
 
-function getRandomAvatar(complexity = 16, renderMethod = "square", size = 256) {
+function getRandomAvatar(
+  complexity = 16,
+  renderMethod = "square",
+  size = 256,
+  roundedCircle = false
+) {
   let avatarData = generateRandomAvatarData(complexity);
-  return getAvatarFromData(avatarData, renderMethod, size);
+  return getAvatarFromData(avatarData, renderMethod, size, roundedCircle);
 }
