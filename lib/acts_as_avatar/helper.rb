@@ -11,9 +11,11 @@ module ActsAsAvatar
       else
         name = object.send(name.to_sym)
 
-        if ActsAsAvatar.configuration.inline_svg_engine.to_sym == :initial_avatar
+        inline_svg_engine = object.class.inline_svg_engine.to_sym
+
+        if inline_svg_engine.to_sym == :initial_avatar
           initial_avatar_tag(name, size: size, **options)
-        else
+        elsif inline_svg_engine.to_sym == :initials
           initials_tag(name, size: size, **options)
         end
       end
