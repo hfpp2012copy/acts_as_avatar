@@ -65,6 +65,10 @@ module ActsAsAvatar
       #
       # Default value:
       #
+      # custom attribute:
+      #
+      #   rounded_circle: nil
+      #
       # pixels: 5
       # mirror: :x
       # color:
@@ -86,6 +90,7 @@ module ActsAsAvatar
                               :jitter,
                               :id,
                               :template,
+                              :rounded_circle,
                               :background)
 
       pixels = opts[:pixels] || 8
