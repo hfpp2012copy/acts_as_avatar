@@ -20,13 +20,7 @@ module ActsAsAvatar
     end
 
     def initial_avatar_tag(name, size:, **options)
-      opts = {
-        colors: options[:colors],
-        text_color: options[:text_color],
-        font_weight: options[:font_weight],
-        font_family: options[:font_family],
-        seed: options[:seed]
-      }.compact
+      opts = options.extract!(:colors, :text_color, :font_weight, :font_family).compact
 
       limit = options[:limit] || 1
 
@@ -34,11 +28,12 @@ module ActsAsAvatar
     end
 
     def initials_tag(name, size:, **options)
-      opts = {
-        colors: options[:colors], # number of different colors, default: 12
-        limit: options[:limit], # maximal initials length, default: 3
-        shape: options[:shape] # background shape, default: :cirlce
-      }.compact
+      #
+      # number of different colors, default: 12
+      # maximal initials length, default: 3
+      # background shape, default: :cirlce
+      #
+      opts = options.extract!(:colors, :limit, :shape).compact
 
       Initials.svg name, size: size, **opts
     end
