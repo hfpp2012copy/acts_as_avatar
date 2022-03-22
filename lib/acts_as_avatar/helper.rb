@@ -13,19 +13,23 @@ module ActsAsAvatar
       if object.current_avatar.attached?
         image_tag object.current_avatar.variant(resize_to_fill: [size, size]), **options
       else
-        name = name.presence || ActsAsAvatar.configuration.avatar_name
-        text = object.send(name.to_sym)
+        inline_avatar_tag(object, name: name, size: size, **options)
+      end
+    end
 
-        inline_svg_engine = object.class.inline_svg_engine.to_sym
+    def inline_avatar_tag(object, name: nil, size:, **options)
+      name = name.presence || ActsAsAvatar.configuration.avatar_name
+      text = object.send(name.to_sym)
 
-        case inline_svg_engine.to_sym
-        when :initial_avatar
-          initial_avatar_tag(text, size: size, **options)
-        when :icodi_avatar
-          icodi_avatar_tag(text, size: size, **options)
-        when :initials
-          initials_tag(text, size: size, **options)
-        end
+      inline_svg_engine = object.class.inline_svg_engine.to_sym
+
+      case inline_svg_engine.to_sym
+      when :initial_avatar
+        initial_avatar_tag(text, size: size, **options)
+      when :icodi_avatar
+        icodi_avatar_tag(text, size: size, **options)
+      when :initials
+        initials_tag(text, size: size, **options)
       end
     end
 
