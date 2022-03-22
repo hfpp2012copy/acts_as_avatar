@@ -17,6 +17,7 @@
 #  index_avatars_on_avatarable  (avatarable_type,avatarable_id)
 #
 require "marcel"
+require "ruby_identicon"
 
 module ActsAsAvatar
   class Avatar < ActiveRecord::Base

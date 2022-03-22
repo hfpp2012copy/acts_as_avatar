@@ -2,6 +2,7 @@
 
 require "initials"
 require "execjs"
+require "initial_avatar"
 
 module ActsAsAvatar
   module Helper
