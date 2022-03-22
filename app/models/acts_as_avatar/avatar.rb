@@ -46,8 +46,6 @@ module ActsAsAvatar
         ActsAsAvatar::UiFacesAvatarJob.perform_later(avatarable.to_global_id.to_s)
       when :letter_avatar
         add_letter_avatar
-      when :github_avatar
-        add_github_avatar
       end
     end
 
@@ -80,11 +78,14 @@ module ActsAsAvatar
       )
     end
 
+    # TODO
     # def add_github_avatar
+    #   io = ActsAsAvatar::GithubAvatar.instance.random_svg_avatar complexity: 5, size: 60
+    #
     #   default_avatar.attach(
-    #     io: io,
+    #     io: StringIO.new(io),
     #     filename: default_file_name,
-    #     content_type: content_type
+    #     content_type: content_type(io)
     #   )
     # end
 
@@ -92,7 +93,7 @@ module ActsAsAvatar
       ActsAsAvatar.configuration.default_file_name
     end
 
-    def content_type io
+    def content_type(io)
       Marcel::MimeType.for(io)
     end
   end

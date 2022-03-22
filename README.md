@@ -34,6 +34,8 @@ require "acts_as_avatar"
 
 <%= acts_as_avatar_tag(current_admin_user, name: :avatar_name, class: "rounded-circle") %>
 
+<%= github_avatar_tag complexity: 5, size: 60 %>
+
 # model
 acts_as_avatar inline_svg_engine: :initial_avatar
 ```
