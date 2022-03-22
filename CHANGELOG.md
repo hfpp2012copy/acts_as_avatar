@@ -1,6 +1,13 @@
 <a name="unreleased"></a>
 ## [Unreleased]
 
+### Feat
+- Add identicon gem
+
+### Fix
+- Remove github_avatar_tag helper
+- refactor avatar model code
+
 
 <a name="v1.2.1"></a>
 ## [v1.2.1] - 2022-03-22
