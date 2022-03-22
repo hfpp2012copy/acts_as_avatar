@@ -20,7 +20,7 @@ module ActsAsAvatar
         when :initial_avatar
           initial_avatar_tag(text, size: size, **options)
         when :icodi_avatar
-          icodi_avatar_tag(text, **options)
+          icodi_avatar_tag(text, size: size, **options)
         when :initials
           initials_tag(text, size: size, **options)
         end
@@ -50,7 +50,7 @@ module ActsAsAvatar
       ActsAsAvatar::GithubAvatar.instance.random_svg_avatar(**options).html_safe
     end
 
-    def icodi_avatar_tag(text, **options)
+    def icodi_avatar_tag(text, size:, **options)
       #
       # https://github.com/DannyBen/icodi
       #
@@ -82,7 +82,7 @@ module ActsAsAvatar
       pixels = opts[:pixels] || 8
       density = opts[:density] || 0.33
 
-      svg = Icodi.new text, pixels: pixels, density: density, **opts
+      svg = Icodi.new text, size: size, pixels: pixels, density: density, **opts
       svg.render.html_safe
     end
   end

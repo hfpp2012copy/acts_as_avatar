@@ -18,6 +18,7 @@
 #
 require "marcel"
 require "ruby_identicon"
+require "letter_avatar"
 
 module ActsAsAvatar
   class Avatar < ActiveRecord::Base
