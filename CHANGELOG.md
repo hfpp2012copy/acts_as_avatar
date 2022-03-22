@@ -2,9 +2,17 @@
 ## [Unreleased]
 
 ### Feat
+- Add icodi gem
 - Add identicon gem
 
 ### Fix
+- Add inline_avatar_tag helper method
+- Add default avatar size configuration
+- Add rounded_circle options
+- Update gitlab avatar helper tag method
+- Update icodi tag
+- Change class method name
+- Add dependence
 - Remove github_avatar_tag helper
 - refactor avatar model code
 
