@@ -15,6 +15,11 @@ module ActsAsAvatar
       attr_writer method_name.to_sym
 
       class_eval <<-RUBY, __FILE__, __LINE__ + 1
+        #
+        # def uifaces_gender
+        #   @uifaces_gender ||= ActsAsAvatar.configuration.instance_variable_get("@uifaces_gender")
+        # end
+        #
         def #{method_name}
           @#{method_name} ||= ActsAsAvatar.configuration.instance_variable_get("@#{method_name}")
         end
