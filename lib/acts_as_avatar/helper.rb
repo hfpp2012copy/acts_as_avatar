@@ -16,7 +16,11 @@ module ActsAsAvatar
 
       if current_avatar.attached?
         if blob.content_type == "image/svg+xml"
-          URI.parse(blob.url).open.read.html_safe
+          begin
+            URI.parse(blob.url).open.read.html_safe
+          rescue StandardError
+            ""
+          end
         else
           image_tag current_avatar.variant(resize_to_fill: [size, size]), **options
         end
