@@ -17,7 +17,7 @@ module ActsAsAvatar
       end
     end
 
-    def inline_avatar_tag(object, name: nil, size:, **options)
+    def inline_avatar_tag(object, size:, name: nil, **options)
       name = name.presence || ActsAsAvatar.configuration.avatar_name
       text = object.send(name.to_sym)
 
