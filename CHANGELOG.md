@@ -1,11 +1,16 @@
 <a name="unreleased"></a>
 ## [Unreleased]
 
+
+<a name="v1.5.0"></a>
+## [v1.5.0] - 2022-03-23
 ### Feat
+- Github svg avatar load
 - Add icodi gem
 - Add identicon gem
 
 ### Fix
+- Add test for request class_eval method
 - Add inline_avatar_tag helper method
 - Add default avatar size configuration
 - Add rounded_circle options
@@ -127,7 +132,8 @@
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2022-03-20
 
-[Unreleased]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.2.1...HEAD
+[Unreleased]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.5.0...HEAD
+[v1.5.0]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.2.1...v1.5.0
 [v1.2.1]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.2.0...v1.2.1
 [v1.2.0]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.1.2...v1.2.0
 [v1.1.2]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.1.1...v1.1.2

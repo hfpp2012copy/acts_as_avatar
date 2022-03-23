@@ -4,14 +4,22 @@ require "initials"
 require "execjs"
 require "initial_avatar"
 require "icodi"
+require "uri"
 
 module ActsAsAvatar
   module Helper
     def acts_as_avatar_tag(object, name: nil, size: nil, **options)
       size = size.presence || ActsAsAvatar.configuration.avatar_size
 
-      if object.current_avatar.attached?
-        image_tag object.current_avatar.variant(resize_to_fill: [size, size]), **options
+      current_avatar = object.current_avatar
+      blob = current_avatar.blob
+
+      if current_avatar.attached?
+        if blob.content_type == "image/svg+xml"
+          URI.parse(blob.url).open.read.html_safe
+        else
+          image_tag current_avatar.variant(resize_to_fill: [size, size]), **options
+        end
       else
         inline_avatar_tag(object, name: name, size: size, **options)
       end
@@ -53,15 +61,9 @@ module ActsAsAvatar
     end
 
     def github_avatar_tag(size:, **options)
-      complexity = options[:complexity] || 5 # default value is 16
-      render_method = options[:render_method] || "square" # optional value is circle
-      rounded_circle = options[:rounded_circle] || false
-
       ActsAsAvatar::GithubAvatar.instance.random_svg_avatar(
-        complexity,
-        render_method,
-        size,
-        rounded_circle
+        size: size,
+        **options
       ).html_safe
     end
 

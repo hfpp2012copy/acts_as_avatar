@@ -50,6 +50,8 @@ module ActsAsAvatar
         add_letter_avatar
       when :identicon_avatar
         add_identicon_avatar
+      when :github_avatar
+        add_github_avatar
       end
     end
 
@@ -91,16 +93,18 @@ module ActsAsAvatar
       )
     end
 
-    # TODO
-    # def add_github_avatar
-    #   io = ActsAsAvatar::GithubAvatar.instance.random_svg_avatar complexity: 5, size: 60
-    #
-    #   default_avatar.attach(
-    #     io: StringIO.new(io),
-    #     filename: default_file_name,
-    #     content_type: content_type(io)
-    #   )
-    # end
+    def add_github_avatar
+      size = ActsAsAvatar.configuration.avatar_size
+      io = ActsAsAvatar::GithubAvatar.instance.random_svg_avatar complexity: 10, size: size
+
+      filename = "#{default_file_name}.svg"
+
+      default_avatar.attach(
+        io: StringIO.new(io),
+        filename: filename,
+        content_type: "image/svg+xml"
+      )
+    end
 
     def default_file_name
       ActsAsAvatar.configuration.default_file_name

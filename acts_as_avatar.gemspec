@@ -30,6 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "active_storage_validations", "~> 0.9.6"
   spec.add_dependency "execjs", "~> 2.8.1"
   spec.add_dependency "forwardable", "~> 1.3.2"
+  spec.add_dependency "http", "~> 5.0.4"
   spec.add_dependency "icodi", "~> 0.1.3"
   spec.add_dependency "initial_avatar", "~> 0.2.2"
   spec.add_dependency "initials", "~> 0.4.2"
@@ -39,4 +40,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "ruby_identicon", "~> 0.0.6"
   spec.add_dependency "singleton", "~> 0.1.1"
   spec.add_dependency "stringio", "~> 3.0.1"
+  spec.add_dependency "uri", "~> 0.11.0"
 end

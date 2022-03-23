@@ -2,6 +2,8 @@
 
 require "singleton"
 require "forwardable"
+require "http"
+require "uri"
 
 module ActsAsAvatar
   class Request
