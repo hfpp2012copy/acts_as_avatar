@@ -9,15 +9,15 @@ module ActsAsAvatar
     #
     # Default options:
     #
-    #   comlexity: 16
+    #   complexity: 16
     #
     #   redner_method: squad
     #
-    def random_svg_avatar(size:, complexity: 5, render_method: "square", rounded_circle: false)
+    def random_svg_avatar(size:, github_complexity:, github_render_method:, github_rounded_circle:)
       source = File.join(File.expand_path("../../", File.dirname(__FILE__)), "github_avatar.js")
       js = File.read(source)
       context = ExecJS.compile(js)
-      context.call("getRandomAvatar", complexity, render_method, size, rounded_circle)
+      context.call("getRandomAvatar", github_complexity, github_render_method, size, github_rounded_circle)
     end
   end
 end

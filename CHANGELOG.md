@@ -2,6 +2,13 @@
 ## [Unreleased]
 
 
+<a name="v1.6.0"></a>
+## [v1.6.0] - 2022-03-23
+### Feat
+- Github avatar config
+- Github svg avatar load
+
+
 <a name="v1.5.0"></a>
 ## [v1.5.0] - 2022-03-23
 ### Feat
@@ -132,7 +139,8 @@
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2022-03-20
 
-[Unreleased]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.5.0...HEAD
+[Unreleased]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.6.0...HEAD
+[v1.6.0]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.5.0...v1.6.0
 [v1.5.0]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.2.1...v1.5.0
 [v1.2.1]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.2.0...v1.2.1
 [v1.2.0]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.1.2...v1.2.0

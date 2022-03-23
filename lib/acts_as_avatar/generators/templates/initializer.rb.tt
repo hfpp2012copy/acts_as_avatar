@@ -11,10 +11,18 @@ ActsAsAvatar.configure do |config|
   config.avatar_size       = 60
 
   #
-  # Optional value is :letter_avatar, :uifaces_avatar or :identicon_avatar
+  # Optional value is
+  #   :letter_avatar, :uifaces_avatar, :github_avatar, or :identicon_avatar
   # When value is nil, disable engine
   #
   config.random_image_engine = :letter_avatar
+
+  #
+  # When random_image_engine is :github_avatar
+  #
+  config.github_complexity     = 5
+  config.github_render_method  = "square"
+  config.github_rounded_circle = false
 
   #
   # Optional value is :initial_avatar, :initials or :icodi_avatar

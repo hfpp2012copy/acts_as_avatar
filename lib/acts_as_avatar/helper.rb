@@ -61,9 +61,15 @@ module ActsAsAvatar
     end
 
     def github_avatar_tag(size:, **options)
+      opts = options.extract!(:github_complexity, :github_render_method, :github_rounded_circle).compact
+
+      opts = ActsAsAvatar.configuration.default_options.merge(opts)
+
       ActsAsAvatar::GithubAvatar.instance.random_svg_avatar(
         size: size,
-        **options
+        github_complexity: opts[:github_complexity],
+        github_render_method: opts[:github_render_method],
+        github_rounded_circle: opts[:github_rounded_circle]
       ).html_safe
     end
 

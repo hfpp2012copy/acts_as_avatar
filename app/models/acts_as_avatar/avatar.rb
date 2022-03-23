@@ -95,7 +95,17 @@ module ActsAsAvatar
 
     def add_github_avatar
       size = ActsAsAvatar.configuration.avatar_size
-      io = ActsAsAvatar::GithubAvatar.instance.random_svg_avatar complexity: 10, size: size
+
+      complexity     = ActsAsAvatar.configuration.github_complexity
+      render_method  = ActsAsAvatar.configuration.github_render_method
+      rounded_circle = ActsAsAvatar.configuration.github_rounded_circle
+
+      io = ActsAsAvatar::GithubAvatar.instance.random_svg_avatar(
+        size: size,
+        github_complexity: complexity,
+        github_render_method: render_method,
+        github_rounded_circle: rounded_circle
+      )
 
       filename = "#{default_file_name}.svg"
 
