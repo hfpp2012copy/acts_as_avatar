@@ -137,7 +137,11 @@ module ActsAsAvatar
         svg[key] = value
       end
 
-      svg.to_s.html_safe
+      scrubber = Loofah::Scrubber.new do |node|
+        node.remove if node.name == 'script'
+      end
+
+      sanitize(svg.to_s, scrubber: scrubber).html_safe
     end
   end
 end
