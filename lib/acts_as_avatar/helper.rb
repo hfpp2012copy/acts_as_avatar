@@ -8,7 +8,7 @@ require "uri"
 
 module ActsAsAvatar
   module Helper
-    def acts_as_avatar_tag(object, name: nil, size: nil, **options)
+    def acts_as_avatar_tag(object, name: nil, size: nil, **options) # rubocop:disable Metrics/MethodLength
       size = size.presence || ActsAsAvatar.configuration.avatar_size
 
       current_avatar = object.current_avatar
@@ -16,17 +16,17 @@ module ActsAsAvatar
 
       if current_avatar.attached?
         if blob.content_type == "image/svg+xml"
-          begin
-            URI.parse(blob.url).open.read.html_safe
-          rescue StandardError
-            ""
-          end
+          URI.parse(blob.url).open.read.html_safe
         else
           image_tag current_avatar.variant(resize_to_fill: [size, size]), **options
         end
       else
         inline_avatar_tag(object, name: name, size: size, **options)
       end
+    rescue StandardError => e
+      puts e.inspect
+      puts e.backtrace.inspect
+      "".html_safe
     end
 
     def inline_avatar_tag(object, size:, name: nil, **options)
