@@ -9,6 +9,8 @@ require "nokogiri"
 
 module ActsAsAvatar
   module Helper
+    include ActsAsAvatar::Scrubber
+
     def acts_as_avatar_tag(object, name: nil, size: nil, **options) # rubocop:disable Metrics/MethodLength
       size = size.presence || ActsAsAvatar.configuration.avatar_size
 
@@ -137,11 +139,7 @@ module ActsAsAvatar
         svg[key] = value
       end
 
-      scrubber = Loofah::Scrubber.new do |node|
-        node.remove if node.name == 'script'
-      end
-
-      sanitize(svg.to_s, scrubber: scrubber).html_safe
+      sanitize(svg.to_s).html_safe
     end
   end
 end
