@@ -6,6 +6,7 @@ module ActsAsAvatar
   autoload :VERSION, "acts_as_avatar/version"
   autoload :Request, "acts_as_avatar/request"
   autoload :GithubAvatar, "acts_as_avatar/github_avatar"
+  autoload :Scrubber, "acts_as_avatar/scrubber"
 
   require_relative "acts_as_avatar/configuration"
   require_relative "acts_as_avatar/class_methods"
