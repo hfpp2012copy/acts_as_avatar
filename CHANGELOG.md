@@ -1,6 +1,60 @@
 <a name="unreleased"></a>
 ## [Unreleased]
 
+### Fix
+- Using blob.download to replace uri parse
+
+
+<a name="v1.7.0"></a>
+## [v1.7.0] - 2022-04-15
+### Feat
+- Add Scrubber module
+- Add svg_sanitizer job
+
+### Fix
+- Using blob.download to replace uri parse
+- Sanitize svg on helper
+
+
+<a name="v1.6.7"></a>
+## [v1.6.7] - 2022-04-15
+### Fix
+- Add svg Scrubbers gem
+
+
+<a name="v1.6.6"></a>
+## [v1.6.6] - 2022-04-15
+### Fix
+- Fix render svg method
+
+
+<a name="v1.6.5"></a>
+## [v1.6.5] - 2022-04-15
+### Fix
+- Fix acts as tag helper method
+
+
+<a name="v1.6.4"></a>
+## [v1.6.4] - 2022-03-29
+### Fix
+- Update gems
+
+
+<a name="v1.6.3"></a>
+## [v1.6.3] - 2022-03-29
+### Feat
+- Github avatar config
+
+### Fix
+- Down stringio version to 3.0.0
+- Add github avatar js to build
+- Add app dir to build
+- change uri gem version
+- Svg render error
+
+### Reverts
+- fix: change uri gem version
+
 
 <a name="v1.6.0"></a>
 ## [v1.6.0] - 2022-03-23
@@ -139,21 +193,27 @@
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2022-03-20
 
-[Unreleased]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.6.0...HEAD
-[v1.6.0]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.5.0...v1.6.0
-[v1.5.0]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.2.1...v1.5.0
-[v1.2.1]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.2.0...v1.2.1
-[v1.2.0]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.1.2...v1.2.0
-[v1.1.2]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.1.1...v1.1.2
-[v1.1.1]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.1.0...v1.1.1
-[v1.1.0]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.0.9...v1.1.0
-[v1.0.9]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.0.8...v1.0.9
-[v1.0.8]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.0.7...v1.0.8
-[v1.0.7]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.0.6...v1.0.7
-[v1.0.6]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.0.5...v1.0.6
-[v1.0.5]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.0.4...v1.0.5
-[v1.0.4]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.0.3...v1.0.4
-[v1.0.3]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.0.2...v1.0.3
-[v1.0.2]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.0.1...v1.0.2
-[v1.0.1]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v1.0.0...v1.0.1
-[v1.0.0]: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar/compare/v0.1.0...v1.0.0
+[Unreleased]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.7.0...HEAD
+[v1.7.0]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.6.7...v1.7.0
+[v1.6.7]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.6.6...v1.6.7
+[v1.6.6]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.6.5...v1.6.6
+[v1.6.5]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.6.4...v1.6.5
+[v1.6.4]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.6.3...v1.6.4
+[v1.6.3]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.6.0...v1.6.3
+[v1.6.0]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.5.0...v1.6.0
+[v1.5.0]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.2.1...v1.5.0
+[v1.2.1]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.2.0...v1.2.1
+[v1.2.0]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.1.2...v1.2.0
+[v1.1.2]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.1.1...v1.1.2
+[v1.1.1]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.1.0...v1.1.1
+[v1.1.0]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.0.9...v1.1.0
+[v1.0.9]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.0.8...v1.0.9
+[v1.0.8]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.0.7...v1.0.8
+[v1.0.7]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.0.6...v1.0.7
+[v1.0.6]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.0.5...v1.0.6
+[v1.0.5]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.0.4...v1.0.5
+[v1.0.4]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.0.3...v1.0.4
+[v1.0.3]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.0.2...v1.0.3
+[v1.0.2]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.0.1...v1.0.2
+[v1.0.1]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v1.0.0...v1.0.1
+[v1.0.0]: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar/compare/v0.1.0...v1.0.0

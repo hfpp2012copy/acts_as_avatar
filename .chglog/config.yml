@@ -2,7 +2,7 @@ style: gitlab
 template: CHANGELOG.tpl.md
 info:
   title: CHANGELOG
-  repository_url: https://gitlab.qiuzhi99.com:10022/hfpp2012/acts_as_avatar
+  repository_url: https://gitlab.qiuzhi99.com/hfpp2012/acts_as_avatar
 options:
   commits:
     # filters:
@@ -25,3 +25,4 @@ options:
   notes:
     keywords:
       - BREAKING CHANGE
+

@@ -4,7 +4,6 @@ require "initials"
 require "execjs"
 require "initial_avatar"
 require "icodi"
-require "uri"
 require "nokogiri"
 
 module ActsAsAvatar
@@ -124,9 +123,7 @@ module ActsAsAvatar
     private
 
     def render_svg(blob, size, options)
-      remote_data = URI.parse(blob.url).open.read
-
-      doc = Nokogiri::XML::Document.parse remote_data
+      doc = Nokogiri::XML::Document.parse blob.download.to_s
       svg = doc.root
 
       title = options.delete(:title)
