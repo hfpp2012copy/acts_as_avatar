@@ -41,4 +41,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "singleton", "~> 0.1.1"
   spec.add_dependency "stringio", "~> 3.0.1"
   spec.add_dependency "uri", "~> 0.10.0"
+  spec.add_dependency "nokogiri", "~> 1.13.3"
 end

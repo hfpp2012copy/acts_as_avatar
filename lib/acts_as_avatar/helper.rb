@@ -5,6 +5,7 @@ require "execjs"
 require "initial_avatar"
 require "icodi"
 require "uri"
+require "nokogiri"
 
 module ActsAsAvatar
   module Helper
@@ -16,7 +17,7 @@ module ActsAsAvatar
 
       if current_avatar.attached?
         if blob.content_type == "image/svg+xml"
-          URI.parse(blob.url).open.read.html_safe
+          render_svg blob, size, options
         else
           image_tag current_avatar.variant(resize_to_fill: [size, size]), **options
         end
@@ -116,6 +117,27 @@ module ActsAsAvatar
 
       svg = Icodi.new text, size: size, pixels: pixels, density: density, **opts
       svg.render.html_safe
+    end
+
+    private
+
+    def render_svg(blob, size, options)
+      remote_data = URI.parse(blob.url).open.read
+
+      doc = Nokogiri::XML::Document.parse remote_data
+      svg = doc.root
+
+      title = options.delete(:title)
+      svg.add_child("<title>#{title}</title>") if title
+
+      svg[:width] = size
+      svg[:height] = size
+
+      options.each do |key, value|
+        svg[key] = value
+      end
+
+      svg.to_s.html_safe
     end
   end
 end
