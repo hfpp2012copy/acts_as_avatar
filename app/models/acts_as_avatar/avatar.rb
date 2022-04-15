@@ -36,6 +36,7 @@ module ActsAsAvatar
     after_create_commit :add_default_avatar, if: -> { random_image_engine.present? }
     validates :upload_avatar, size: { less_than: ActsAsAvatar.configuration.upload_max_size },
                               content_type: %r{\Aimage/.*\z}
+    after_create_commit :sanitize_svg, if: :svg?
 
     def current_avatar
       upload_avatar.attached? ? upload_avatar : default_avatar
@@ -57,6 +58,14 @@ module ActsAsAvatar
     end
 
     private
+
+    def svg?
+      current_avatar.blob.filename.extension == "svg"
+    end
+
+    def sanitize_svg
+      ActsAsAvatar::SanitizeSvgJob.set(wait: 10.seconds).perform_later current_avatar.blob
+    end
 
     def random_image_engine
       avatarable.class.random_image_engine

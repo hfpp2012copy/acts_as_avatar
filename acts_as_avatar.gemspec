@@ -43,4 +43,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "uri", "~> 0.10.0"
   spec.add_dependency "nokogiri", "~> 1.13.3"
   spec.add_dependency "loofah", "~> 2.16.0" # rails-html-sanitizer
+  spec.add_dependency "tempfile", "~> 0.1.2"
 end
