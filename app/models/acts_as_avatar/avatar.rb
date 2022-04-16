@@ -60,6 +60,8 @@ module ActsAsAvatar
     private
 
     def svg?
+      return if current_avatar.blob.nil?
+
       current_avatar.blob.filename.extension == "svg"
     end
 

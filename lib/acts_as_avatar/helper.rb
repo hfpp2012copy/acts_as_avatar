@@ -10,7 +10,7 @@ module ActsAsAvatar
   module Helper
     include ActsAsAvatar::Scrubber
 
-    def acts_as_avatar_tag(object, name: nil, size: nil, **options) # rubocop:disable Metrics/MethodLength
+    def acts_as_avatar_tag(object, name: nil, size: nil, **options)
       size = size.presence || ActsAsAvatar.configuration.avatar_size
 
       current_avatar = object.current_avatar

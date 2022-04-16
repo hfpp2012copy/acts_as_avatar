@@ -35,13 +35,13 @@ Gem::Specification.new do |spec|
   spec.add_dependency "initial_avatar", "~> 0.2.2"
   spec.add_dependency "initials", "~> 0.4.2"
   spec.add_dependency "letter_avatar", "~> 0.3.9"
+  spec.add_dependency "loofah", "~> 2.16.0" # rails-html-sanitizer
   spec.add_dependency "marcel", "~> 1.0"
+  spec.add_dependency "nokogiri", "~> 1.13.3"
   spec.add_dependency "rails", "~> 7.0.2"
   spec.add_dependency "ruby_identicon", "~> 0.0.6"
   spec.add_dependency "singleton", "~> 0.1.1"
   spec.add_dependency "stringio", "~> 3.0.1"
-  spec.add_dependency "uri", "~> 0.10.0"
-  spec.add_dependency "nokogiri", "~> 1.13.3"
-  spec.add_dependency "loofah", "~> 2.16.0" # rails-html-sanitizer
   spec.add_dependency "tempfile", "~> 0.1.2"
+  spec.add_dependency "uri", "~> 0.10.0"
 end
