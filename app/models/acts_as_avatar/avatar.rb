@@ -24,7 +24,7 @@ require "active_storage_validations"
 module ActsAsAvatar
   class Avatar < ActiveRecord::Base
     # Table name
-    self.table_name = "act_as_avatars"
+    self.table_name = "acts_as_avatars"
 
     # belongs_to :avatarable, polymorphic: true
     delegated_type :avatarable, types: ActsAsAvatar.configuration.class_type

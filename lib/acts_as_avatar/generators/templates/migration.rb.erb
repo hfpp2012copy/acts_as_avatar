@@ -4,8 +4,6 @@ class CreateActsAsAvatars < ActiveRecord::Migration<%= migration_version %>
   def change
     create_table :acts_as_avatars do |t|
       t.references :avatarable, polymorphic: true, index: true, null: false
-      t.string :default_avatar
-      t.string :upload_avatar
 
       t.timestamps
     end
