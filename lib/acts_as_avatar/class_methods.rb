@@ -21,14 +21,14 @@ module ActsAsAvatar
       has_one :avatar, as: :avatarable, class_name: "ActsAsAvatar::Avatar"
       accepts_nested_attributes_for :avatar
       delegate :current_avatar, :default_avatar, :upload_avatar, to: :avatar
-      # include InstanceMethods
-      after_create_commit { create_avatar }
+      include InstanceMethods
+      # after_create_commit { create_avatar }
     end
   end
 
-  # module InstanceMethods
-  #   def avatar
-  #     super || build_avatar
-  #   end
-  # end
+  module InstanceMethods
+    def avatar
+      super || create_avatar
+    end
+  end
 end
