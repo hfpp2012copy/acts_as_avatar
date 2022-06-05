@@ -6,8 +6,6 @@
 #
 #  id              :bigint           not null, primary key
 #  avatarable_type :string           not null
-#  default_avatar  :string
-#  upload_avatar   :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  avatarable_id   :bigint           not null
