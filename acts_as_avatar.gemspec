@@ -35,7 +35,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "initial_avatar", "~> 0.2.2"
   spec.add_dependency "initials", "~> 0.4.2"
   spec.add_dependency "letter_avatar", "~> 0.3.9"
-  spec.add_dependency "loofah", "~> 2.16.0" # rails-html-sanitizer
+  spec.add_dependency "loofah", ">= 2.16", "< 2.20" # rails-html-sanitizer
   spec.add_dependency "marcel", "~> 1.0"
   spec.add_dependency "nokogiri", "~> 1.13.3"
   spec.add_dependency "rails", "~> 7.0.2"
